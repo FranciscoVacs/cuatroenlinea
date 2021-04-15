@@ -9,16 +9,19 @@ def tablero_vacio():
     ]
 
 def completar_tablero_en_orden(secuencia, tablero):
-    i = len(secuencia)
-    n=0
     j=1
-    for ficha in range(0, i):
-        soltar_ficha_en_columna(j,secuencia[n],tablero)
-        n= n+1
-        if j==1: j = j+1
-        else: j = j-1
+    for n in range(0, len(secuencia)):
+        if secuencia[n] > 0 and secuencia[n] < 8:
+            soltar_ficha_en_columna(j,secuencia[n],tablero)
+            n = n+1
+            if j==1: j = j+1
+            else: j = j-1
+        else:
+            print("\nSecuencia incorrecta")
+            tablero = 0
+            return tablero
     return tablero
-        
+            
 
 
 
@@ -29,11 +32,13 @@ def soltar_ficha_en_columna(ficha, columna, tablero):
             return
 
 def dibujar_tablero(tablero):
-    print("\nEl tablero es:")
-    for i in tablero:
-        for j in i:
-            print(j, end=" ")
-        print()
+    if tablero == 0: print("Intentelo nuevamente")
+    else:
+        print("\nEl tablero es:")
+        for i in tablero:
+            for j in i:
+                print(j, end=" ")
+            print()
        
 
 
