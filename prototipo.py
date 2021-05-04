@@ -21,6 +21,23 @@ def contenido_fila(nro_fila,tablero):
         fila.append(celda)
     return fila
 
+def todas_columnas(tablero):
+    array_columnas = []
+    columnas = []
+    for columna in range(7):
+        for fila in tablero:
+            celda = fila[columna]
+            columnas.append(celda)
+        array_columnas.append(columnas)
+        columnas = []
+    return array_columnas
+
+def todas_filas(tablero):
+    array_filas = []
+    for fila in tablero:
+        array_filas.append(fila)
+    return array_filas
+
 def limite_columna(secuencia):
     for i in (secuencia):
         if i < 1 or i > 7:
@@ -63,3 +80,6 @@ else:
 
 print('Contenido Columna 1:',contenido_columna(1,tablero))
 print('Contenido Fila 6',contenido_fila(6,tablero))
+print('El array de columnas es:',todas_columnas(tablero))
+print('El array de filas es:',todas_filas(tablero))
+
