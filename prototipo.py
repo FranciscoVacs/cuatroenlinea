@@ -8,6 +8,19 @@ def tablero_vacio():
         [0, 0, 0, 0, 0, 0, 0],
     ]
 
+def contenido_columna(nro_columna,tablero):
+    columna = []
+    for fila in tablero:
+        celda = fila[nro_columna - 1]
+        columna.append(celda)
+    return columna
+
+def contenido_fila(nro_fila,tablero):
+    fila = []
+    for celda in tablero[nro_fila - 1]:
+        fila.append(celda)
+    return fila
+
 def limite_columna(secuencia):
     for i in (secuencia):
         if i < 1 or i > 7:
@@ -39,6 +52,7 @@ def dibujar_tablero(tablero):
 
 secuencia = [1,2,3,1]
 if (limite_columna(secuencia)):
+    tablero = completar_tablero_en_orden(secuencia,tablero_vacio())
     dibujar_tablero(
         completar_tablero_en_orden(
             secuencia, tablero_vacio()
@@ -46,3 +60,6 @@ if (limite_columna(secuencia)):
     )
 else:
     print("Secuencia Incorrecta") 
+
+print('Contenido Columna 1:',contenido_columna(1,tablero))
+print('Contenido Fila 6',contenido_fila(6,tablero))
