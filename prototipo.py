@@ -60,11 +60,12 @@ def soltar_ficha_en_columna(ficha, columna, tablero):
             return
 
 def dibujar_tablero(tablero):
-    print("\nEl tablero es:")
-    for i in tablero:
-        for j in i:
-            print(j, end=" ")
-        print()
+    print("\nEl tablero es:\n")
+    print("+---------------+")
+    for fila in tablero:
+        print("|",*fila,"|")
+    print("+---------------+")
+    
 
 
 secuencia = [1,2,3,1]
