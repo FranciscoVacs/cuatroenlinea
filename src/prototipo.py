@@ -63,12 +63,18 @@ def dibujar_tablero(tablero):
     print("\nEl tablero es:\n")
     print("+---------------+")
     for fila in tablero:
-        print("|",*fila,"|")
+        print("|",end=' ')
+        for celda in fila:
+            if celda == 0:
+                print(" ",end=' ')
+            else:
+                print(celda,end=' ')
+        print("|")
     print("+---------------+")
     
 
 
-secuencia = [1,2,3,1]
+secuencia = [1,2,3,1,5,3,2,1,1,6,5,2]
 if (limite_columna(secuencia)):
     tablero = completar_tablero_en_orden(secuencia,tablero_vacio())
     dibujar_tablero(
